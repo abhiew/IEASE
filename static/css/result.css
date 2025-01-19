@@ -1,0 +1,117 @@
+/* Result Container */
+.result-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Result Heading */
+.result-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Room Section */
+.room-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(45, 45, 45, 0.9); /* Semi-transparent dark background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center align all text in the room section */
+}
+
+.room-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.faculty-info {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+/* Seating Table */
+.seating-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: rgba(58, 58, 58, 0.8); /* Semi-transparent dark background */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.seating-table th, .seating-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #555;
+}
+
+.seating-table th {
+    background-color: #ff6f61; /* Blue header */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.seating-table td {
+    background-color: rgba(45, 45, 45, 0.9); /* Semi-transparent dark cell background */
+    color: #e0e0e0;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff6f61, #ff3b2f); /* Coral gradient */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.3); /* Shadow for depth */
+}
+
+.back-button:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.5); /* Enhanced shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .result-heading {
+        font-size: 2rem;
+    }
+
+    .room-heading {
+        font-size: 1.5rem;
+    }
+
+    .faculty-info {
+        font-size: 1rem;
+    }
+
+    .seating-table th, .seating-table td {
+        padding: 8px;
+    }
+
+    .back-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

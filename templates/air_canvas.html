@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Canvas - IEASE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="air-canvas-page">
+        <h1>Air Canvas</h1>
+        <div class="container">
+            <div class="canvas-container">
+                <img src="{{ url_for('video_feed') }}" width="950" height="550">
+            </div>
+            <div class="output-container">
+                <h2>Output</h2>
+                <div id="result">Your analysis will appear here.</div>
+                <div class="button-row">
+                    <button id="show-answer-button" onclick="checkAnalysis()">Show Answer</button>
+                    <a href="{{ url_for('index') }}" class="back-button">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to check analysis
+        function checkAnalysis() {
+            fetch('/check_analysis')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = data.analysis;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Function to reset canvas
+        function resetCanvas() {
+            fetch('/reset_canvas')
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Canvas reset:", data.status);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Keyboard event listener
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                checkAnalysis(); // Trigger Show Answer on Enter key
+            } else if (event.key === 'r' || event.key === 'R') {
+                resetCanvas(); // Trigger Reset Canvas on R key
+            }
+        });
+    </script>
+</body>
+</html>

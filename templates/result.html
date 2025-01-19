@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <div class="result-container">
+        <h1 class="result-heading">Seating Arrangement</h1>
+
+        <!-- Display arrangement for each room -->
+        {% for i, room in enumerate(arrangement) %}
+            <div class="room-section">
+                <h2 class="room-heading">Room: {{ rooms_details[i]['room_no'] }}</h2>
+                <p class="faculty-info"><strong>Assigned Faculties:</strong> {{ faculties_assigned[i] | join(', ') }}</p>
+                <table class="seating-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            {% for col in room.columns %}
+                                <th>Bench {{ col + 1 }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in range(room.shape[0]) %}
+                            <tr>
+                                <th>Row {{ row + 1 }}</th>
+                                {% for col in room.columns %}
+                                    <td>
+                                        {% if room[col][row] %}
+                                            {{ room[col][row][0] }}, {{ room[col][row][1] }}
+                                        {% else %}
+                                            Empty
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+
+        <!-- Back Button -->
+        <a href="{{ url_for('exam_management') }}" class="back-button">Back to Exam Management</a>
+    </div>
+</body>
+</html>
