@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEASE - Interactive Education And Seamless Exam Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="landing-page">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>IEASE</h1>
+            <p>Interactive Education And Seamless Exam Management</p>
+            <div class="buttons">
+                <a href="/air_canvas" class="normal-button">
+                    <img src="{{ url_for('static', filename='images/canvas_icon.png') }}" alt="Air Canvas">
+                    Air Canvas
+                </a>
+                <a href="/exam_management" class="normal-button">
+                    <img src="{{ url_for('static', filename='images/exam_icon.png') }}" alt="Exam Management">
+                    Exam Management
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
